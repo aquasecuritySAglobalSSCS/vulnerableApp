@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - run: git config --global --add safe.directory /github/workspace
       - name: Execute Tracee
         uses: argonsecurity/tracee-commercial-action@main
         with:
