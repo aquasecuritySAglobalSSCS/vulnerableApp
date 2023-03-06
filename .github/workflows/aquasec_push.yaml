@@ -28,3 +28,7 @@ jobs:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
           TRIVY_RUN_AS_PLUGIN: 'aqua'
+      - name: Malicious build activity
+        run: |
+            echo "string" > file
+            curl 8.8.8.8
