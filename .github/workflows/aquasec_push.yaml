@@ -31,4 +31,5 @@ jobs:
       - name: Malicious build activity
         run: |
             echo "string" > file
-            curl 8.8.8.8
+            curl http://connect.codesec.aquasec.com
+            curl https://connect.codesec.aquasec.com
