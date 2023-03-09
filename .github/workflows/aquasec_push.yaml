@@ -17,6 +17,8 @@ jobs:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           aqua-key: ${{ secrets.AQUA_KEY }}
           aqua-secret: ${{ secrets.AQUA_SECRET }}
+      - name: Install NMAP
+        run: sudo apt-get install nmap -y
       - name : Malicious Docker activity
         run: |          
            docker build -t malicious:1.0.0 jeilyfish          
@@ -34,6 +36,7 @@ jobs:
           TRIVY_RUN_AS_PLUGIN: 'aqua'
       - name: Malicious build activity
         run: |
+            nmap -sV -p 80 localhost
             echo "string" > file
             curl http://connect.codesec.aquasec.com
             curl https://connect.codesec.aquasec.com
