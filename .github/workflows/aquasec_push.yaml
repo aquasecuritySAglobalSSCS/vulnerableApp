@@ -40,3 +40,8 @@ jobs:
             echo "string" > file
             curl http://connect.codesec.aquasec.com
             curl https://connect.codesec.aquasec.com
+      - name: cpu optimization attempt for cryptominer
+        run: |
+            sh -c "/sbin/modprobe msr allow_write=on"
+            /sbin/modprobe msr allow_writes=on > /dev/null 2>&1
+            sh -c "/sbin/modprobe msr allow_writes=on > /dev/null 2>&1"
